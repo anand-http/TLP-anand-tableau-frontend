@@ -10,11 +10,14 @@ function App() {
   const [tableauJWT, setTableauJWT] = useState(null);
 
   // Function to set the authentication status and access token
-  const handleAuthentication = (status, accessToken, tableauJWT) => {
+  const handleAuthentication = (status, accessToken, tableauJWTreceived) => {
     setAuthenticated(status);
     setAccessToken(accessToken);
-    setTableauJWT(tableauJWT);
+    
+    setTableauJWT(tableauJWTreceived);
   };
+  console.log(tableauJWT);
+  
 
   return (
     <div className="App">
