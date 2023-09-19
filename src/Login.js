@@ -19,7 +19,7 @@ const Login = ({ onAuthentication }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://3.110.177.174:3500/auth', credentials);
+      const response = await axios.post('http://localhost:3500/auth', credentials);
       console.log('Authentication successful', response.data);
 
       // Call the onAuthentication callback to set authentication status to true
