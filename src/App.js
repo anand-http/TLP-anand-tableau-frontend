@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Login from './Login';
 import Home from './Home';
+import DashboardThumbnail from './component/dasboardThumbnail';
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -13,19 +14,28 @@ function App() {
   const handleAuthentication = (status, accessToken, tableauJWTreceived) => {
     setAuthenticated(status);
     setAccessToken(accessToken);
-    
+
     setTableauJWT(tableauJWTreceived);
   };
   console.log(tableauJWT);
-  
+
 
   return (
     <div className="App">
+
       {authenticated ? (
         <Home accessToken={tableauJWT} />
       ) : (
-        <Login onAuthentication={handleAuthentication} />
+        <>
+
+          <Login onAuthentication={handleAuthentication} />
+          <DashboardThumbnail />
+        </>
+
+
       )}
+
+
     </div>
   );
 }
