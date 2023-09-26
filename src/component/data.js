@@ -11,32 +11,32 @@ const cardData = [
     },
     {
         imageUrl:"https://images.pexels.com/photos/1275929/pexels-photo-1275929.jpeg?cs=srgb&dl=pexels-tyler-lastovich-1275929.jpg&fm=jpg",
-        linkUrl:"https://anandfitdev.netlify.app",
+        linkUrl:"https://public.tableau.com/app/profile/ryansoares/viz/TorontoFireIncidents_16935861977740/TorontoFireIncidents",
         title: "hello",
     },
     {
         imageUrl:"https://images.pexels.com/photos/1275929/pexels-photo-1275929.jpeg?cs=srgb&dl=pexels-tyler-lastovich-1275929.jpg&fm=jpg",
-        linkUrl:"https://anandfitdev.netlify.app",
+        linkUrl:"https://public.tableau.com/app/profile/ryansoares/viz/TorontoFireIncidents_16935861977740/TorontoFireIncidents",
         title: "hello",
     },
     {
         imageUrl:"https://images.pexels.com/photos/1275929/pexels-photo-1275929.jpeg?cs=srgb&dl=pexels-tyler-lastovich-1275929.jpg&fm=jpg",
-        linkUrl:"https://anandfitdev.netlify.app",
+        linkUrl:"https://public.tableau.com/app/profile/ryansoares/viz/TorontoFireIncidents_16935861977740/TorontoFireIncidents",
         title: "hello",
     },
     {
         imageUrl:"https://images.pexels.com/photos/1275929/pexels-photo-1275929.jpeg?cs=srgb&dl=pexels-tyler-lastovich-1275929.jpg&fm=jpg",
-        linkUrl:"https://anandfitdev.netlify.app",
+        linkUrl:"https://public.tableau.com/app/profile/ryansoares/viz/TorontoFireIncidents_16935861977740/TorontoFireIncidents",
         title: "hello",
     },
     {
         imageUrl:"https://images.pexels.com/photos/1275929/pexels-photo-1275929.jpeg?cs=srgb&dl=pexels-tyler-lastovich-1275929.jpg&fm=jpg",
-        linkUrl:"https://anandfitdev.netlify.app",
+        linkUrl:"https://public.tableau.com/app/profile/ryansoares/viz/TorontoFireIncidents_16935861977740/TorontoFireIncidents",
         title: "hello",
     },
     {
         imageUrl:"https://images.pexels.com/photos/1275929/pexels-photo-1275929.jpeg?cs=srgb&dl=pexels-tyler-lastovich-1275929.jpg&fm=jpg",
-        linkUrl:"https://anandfitdev.netlify.app",
+        linkUrl:"https://public.tableau.com/app/profile/ryansoares/viz/TorontoFireIncidents_16935861977740/TorontoFireIncidents",
         title: "hello",
     },
 ];

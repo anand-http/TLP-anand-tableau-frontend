@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -7,26 +7,27 @@
 
 /* card css */
 
-.card{
-  
+.card {
+
   width: 20vw;
-  height:45vh;
+  height: 45vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius:5px;
+  border-radius: 5px;
   margin: 20px 12px;
 
 }
-.card-images>a>img{
+
+.card-images>a>img {
   border-radius: 5px;
 }
 
-.card-title{
+.card-title {
   padding: 20px;
   text-align: start;
   font-size: 1rem;
 }
 
-.dashboard-thumbnail{
+.dashboard-thumbnail {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -35,30 +36,75 @@
 }
 
 @media screen and (max-width:768px) {
-  .dashboard-thumbnail{
+  .dashboard-thumbnail {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
 
   }
-  .card{
+
+  .card {
     width: 30vw;
   }
-  
+
 }
 
 @media screen and (max-width:425px) {
-  .dashboard-thumbnail{
+  .dashboard-thumbnail {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     justify-content: center;
-    grid-row-gap:16px
-
+    grid-row-gap: 16px
   }
-  .card{
+
+  .card {
     width: 80vw;
     height: 70vh;
     margin: auto;
   }
-  
+
+}
+
+
+
+/* Dashboard header css */
+
+.dashboard-header {
+  background-color: #0e2c53;
+  padding: 1px 20px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+
+}
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo>img{
+  width: 7vw;
+}
+
+.user>img {
+  filter: invert(1);
+}
+
+
+
+
+/* DropDown css */
+
+
+.dropdown-content {
+  position: absolute;
+  right: 10px;
+
+  border-radius: 50%;
+}
+
+.dropdown-content>button{
+  padding: 15px;
+  border-radius: 10px;
 }

@@ -10,6 +10,7 @@ const Login = ({ onAuthentication }) => {
     pwd: '',
   });
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials({
@@ -22,7 +23,11 @@ const Login = ({ onAuthentication }) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://15.206.174.83:3500/auth', credentials);
+      // const response = await axios.post('http://localhost:3500/auth', credentials);
       console.log('Authentication successful', response.data);
+
+      localStorage.setItem('accessToken', response.data.accessToken);
+      localStorage.setItem('tableauJWT', response.data.tableauJWT);
 
       // Call the onAuthentication callback to set authentication status to true
       onAuthentication(true, response.data.accessToken, response.data.tableauJWT);
@@ -54,7 +59,7 @@ const Login = ({ onAuthentication }) => {
                 name="user"
                 value={credentials.user}
                 onChange={handleChange}
-                placeholder='mohit9695'
+                placeholder='mohit123'
               />
 
             </div>
@@ -73,13 +78,6 @@ const Login = ({ onAuthentication }) => {
             </div>
 
 
-
-            <div className="remember-me">
-
-              <input type="checkbox" />
-              <label>Remember me</label>
-
-            </div>
 
 
 
