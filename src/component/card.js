@@ -1,8 +1,7 @@
 import React from 'react';
+import '../App.css';
 
 import { useNavigate } from 'react-router-dom';
-
-
 
 const Card = ({ imageUrl, linkUrl, title,  }) => {
 
@@ -15,7 +14,6 @@ const Card = ({ imageUrl, linkUrl, title,  }) => {
     }
 
 
-
     return (
         <div className="card">
 
@@ -26,7 +24,7 @@ const Card = ({ imageUrl, linkUrl, title,  }) => {
                 </a> */}
 
                     <img width={"100%"} src={imageUrl} alt="Pic" />
-                   <a href={linkUrl}></a>
+                   {/* <a href={linkUrl}></a> */}
 
                 {/* <img width={"100%"} src={imageUrl} alt="Pic" /> */}
 

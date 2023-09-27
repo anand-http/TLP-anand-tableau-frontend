@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './login.css';
 import loginImage from './assets/loginImage.png';
+import {NavLink } from 'react-router-dom';
 
 const Login = ({ onAuthentication }) => {
   const [credentials, setCredentials] = useState({
@@ -77,6 +78,10 @@ const Login = ({ onAuthentication }) => {
               />
             </div>
 
+
+            <div className="forgot-password">
+              <NavLink className='forgotPswdLink' to='/pswd'>Forgot Password</NavLink>
+            </div>
 
 
 

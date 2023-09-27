@@ -54,13 +54,16 @@ width: 80%;
 margin-top: 5px;
 }
 
-.remember-me{
-    margin: 15px 0;
+.forgotPswdLink{
+    text-decoration: none;
+    color: #893dff;
 }
-.remember-me>label{
-    margin-left: 5px;
-    font-size: 13px;
+
+.forgot-password{
+margin: 10px 0;
 }
+
+
 
 .login-btn>button{
     width: 90%;
