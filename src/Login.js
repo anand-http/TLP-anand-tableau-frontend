@@ -80,7 +80,7 @@ const Login = ({ onAuthentication }) => {
 
 
             <div className="forgot-password">
-              <NavLink className='forgotPswdLink' to='/pswd'>Forgot Password</NavLink>
+              <NavLink className='forgotPswdLink' to='/forgot-pswd'>Forgot Password</NavLink>
             </div>
 
 

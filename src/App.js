@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route ,Navigate} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './component/header';
 import Login from './Login';
 import Home from './Home';
 import DashboardThumbnail from './component/dasboardThumbnail';
 import ForgotPassword from './component/forgotPassword';
 import OtpScreen from './component/otpScreen';
+import { AuthProvider } from './AuthContext';
+import NewPassword from './component/NewPassword';
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [accessToken, setAccessToken] = useState("");
   const [tableauJWT, setTableauJWT] = useState("");
+
+  // logout
+
+
+
 
   useEffect(() => {
     const storedAccessToken = localStorage.getItem('accessToken');
@@ -31,29 +38,25 @@ function App() {
     setTableauJWT(tableauJWTreceived);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('tableauJWT');
-
-    setAuthenticated(false);
-
-    window.location.href = '/login';
-  };
+ 
 
   console.log("Tableau JWT in App.js is: ", tableauJWT);
   console.log(`This is access token: ${accessToken}`);
 
   return (
-    <Router>
-      <Header setAuthenticated={setAuthenticated} onLogout={handleLogout} />
-      <Routes>
-        <Route path="/" element={authenticated ? <DashboardThumbnail /> : <Login onAuthentication={handleAuthentication} />} />
-        <Route path="/home" element={authenticated ? <Home /> : <Navigate to="/" />} />
-        <Route path="/pswd" element={<ForgotPassword />} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/otp-screen' element={<OtpScreen/>}></Route>
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Header setAuthenticated={setAuthenticated}  />
+        <Routes>
+          <Route path="/" element={authenticated ? <DashboardThumbnail /> : <Login onAuthentication={handleAuthentication} />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/forgot-pswd" element={<ForgotPassword />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/otp-screen' element={<OtpScreen />} />
+          <Route path='/new-password' element={<NewPassword />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

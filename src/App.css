@@ -77,7 +77,7 @@
 
 .dashboard-header {
   background-color: #0e2c53;
-  padding: 1px 20px;
+  padding: 0px 20px;
   display: flex;
   justify-content: space-between;
   position: sticky;
@@ -89,8 +89,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 25%;
 }
-.logo>img{
+.logo-link>img{
   width: 7vw;
 }
 
@@ -215,7 +216,7 @@
   text-align: center;
   max-width: 400px;
   width: 100%;
-  height: 40vh;
+  /* height: 40vh; */
 }
 
 
@@ -281,3 +282,92 @@
   text-decoration: none;
   display: block;
 }
+
+
+
+
+
+
+
+
+
+/* NewPassword component css  */
+
+.new-password-screen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Background color */
+}
+
+.new-password-screen-main {
+  background-color: #fff; /* Content background color */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 30vw;
+  text-align: center;
+
+}
+
+.new-password-screen-main-heading h1 {
+  font-size: 24px;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.new-password-screen-main-heading p {
+  font-size: 14px;
+  color: #777; 
+  margin-bottom: 18px;
+
+}
+
+.password-input input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.password-input input:focus {
+  outline: none;
+  border-color: #007bff; 
+}
+
+.set-password-button button {
+  display: block;
+  width: 50%;
+  padding: 12px;
+  /* margin-top: 80px; */
+  background-color: #007bff; 
+  color: #fff; 
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 30px auto;
+}
+
+.set-password-button button:hover {
+  background-color: #0056b3; /* Hovered button background color */
+}
+
+.togglePassword{
+  margin: 10px 0 ;
+  background-color:#ccc;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+

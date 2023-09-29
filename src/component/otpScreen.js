@@ -1,61 +1,108 @@
 import React,{useState} from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
+import emailjs from '@emailjs/browser';
+import { useNavigate } from 'react-router-dom';
+
+emailjs.init('gaIPWPFawO27wj48O');
 
 const OtpScreen = () => {
-    const [otp, setOTP] = useState(['', '', '', '']); // Initialize an array of 4 empty strings
+    const navigate = useNavigate();
+
+    const {email, otp } = useAuth();
+    // console.log("otp of otpScreen:",otp);
+    const [otpinput, setOtpinput] = useState(['', '', '', '']); // Initialize an array of 4 empty strings
 
     const handleChange = (e, index) => {
-        const newOTP = [...otp];
+        const newOTP = [...otpinput];
         newOTP[index] = e.target.value;
-        setOTP(newOTP);
+        setOtpinput(newOTP);
     };
+  
+    const handleResendOtp = async (email,otp)=>{
+        try {
+           
+            const templateParams = {
+                to_email: email,
+                message: `Your OTP code is: ${otp}`,
+            };
 
+            const response = await emailjs.send('service_n4bi9ig', 'template_nwgeevz', templateParams);
+
+            console.log('Email sent successfully', response);
+
+            alert("Otp Resend Plz check your mail");
+
+
+        } catch (error) {
+            console.error('Error sending email:', error);
+            alert("Error while sending the email check console for more detail");
+        }
+    }
+
+    const VerifyOtp = () => {
+        // Combine the OTP digits from the input fields
+        const enteredOTP = otpinput.join('');
+    
+      
+    
+        if (enteredOTP === otp) {
+        
+            navigate('/new-password');
+            // alert("OTP verification successful!");
+        
+        } else {
+           
+            alert("Invalid OTP. Please try again.");
+        }
+    };
+    
 
     return (
         <div className='otp-screen-container'>
             <div className="otp-screen-main">
                 <div className="otp-screen-main-heading">
                     <h1>OTP Verification</h1>
-                    <h2>OTP sent SuccessFully</h2>
-                    <p>Enter the OTP sent to hello@gmail.com</p>
+                 
+                  <p>We have sent a code to your email {email}</p>
                 </div>
 
                 <div className='otp-input'>
                     <input
                         type="text"
                         maxLength="1"
-                        value={otp[0]}
+                        value={otpinput[0]}
                         onChange={(e) => handleChange(e, 0)}
                     />
                     <input
                         type="text"
                         maxLength="1"
-                        value={otp[1]}
+                        value={otpinput[1]}
                         onChange={(e) => handleChange(e, 1)}
                     />
                     <input
                         type="text"
                         maxLength="1"
-                        value={otp[2]}
+                        value={otpinput[2]}
                         onChange={(e) => handleChange(e, 2)}
                     />
                     <input
                         type="text"
                         maxLength="1"
-                        value={otp[3]}
+                        value={otpinput[3]}
                         onChange={(e) => handleChange(e, 3)}
                     />
                 </div>
 
                 <div className="not-recieved-otp">
                     <span>Didn't receive the OTP?</span> 
-                    <NavLink>Resend Otp</NavLink>
+                    <NavLink onClick={()=> handleResendOtp(email,otp)}>Resend Otp</NavLink>
                 </div>
 
                 <div className="verify-otp">
-                    <NavLink className={"otp-verify-button"}>
+                    <button className={"otp-verify-button"} onClick={VerifyOtp}>
                         Verify
-                    </NavLink>
+                    </button>
                 </div>
             </div>
 
