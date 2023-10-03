@@ -47,7 +47,7 @@
 
   .card {
     width: 30vw;
-   
+
   }
 
 }
@@ -64,10 +64,10 @@
     width: 80vw;
     height: 70vh;
     margin: auto;
-   
+
   }
 
- 
+
 
 }
 
@@ -77,7 +77,7 @@
 
 .dashboard-header {
   background-color: #0e2c53;
-  padding: 0px 20px;
+  padding: 6px 20px;
   display: flex;
   justify-content: space-between;
   position: sticky;
@@ -85,19 +85,28 @@
   z-index: 100;
 
 }
-.logo{
+
+.logo {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 25%;
 }
-.logo-link>img{
+
+.logo-link>img {
   width: 7vw;
+}
+
+.user {
+  width: 70%;
 }
 
 .user>img {
   filter: invert(1);
+  width: 100%;
 }
+
+
 
 
 
@@ -108,14 +117,26 @@
 .dropdown-content {
   position: absolute;
   right: 10px;
-  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, .8) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  width: 80px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
+  margin-top: 6px;
 }
 
-.dropdown-content>button{
-  padding: 17px;
-  border-radius: 14px;
-  background-color: rgb(13, 204, 242);
+
+
+.dropdown-content>button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-size: 20px;
   border: none;
+
 }
 
 
@@ -124,14 +145,15 @@
 
 /* forget password css */
 
-.forget-pswd-container{
+.forget-pswd-container {
   background-color: #ebeff3;
   height: 93vh;
   display: flex;
   align-items: center;
-  justify-content: center ;
+  justify-content: center;
 }
-.forget-pswd-main{
+
+.forget-pswd-main {
   background-color: #ffffff;
   width: 25%;
   height: auto;
@@ -141,18 +163,20 @@
 
 
 
-.reset-pswd-heading{
+.reset-pswd-heading {
   margin: 10px 0;
 }
-.reset-pswd-heading>p{
+
+.reset-pswd-heading>p {
   margin: 10px 0;
   font-size: 19px;
 }
 
-.reset-pswd-input{
+.reset-pswd-input {
   margin: 40px 0;
 }
-.reset-pswd-input>input{
+
+.reset-pswd-input>input {
   border: 3px solid #688bd3;
   outline: none;
   border-radius: 5px;
@@ -161,11 +185,16 @@
   margin-top: 5px;
 }
 
-.reset-button-div{
+.reset-button-div {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
 }
-.reset-button{
+
+.reset-button {
   width: 93%;
   border-radius: 5px;
   padding: 15px;
@@ -178,7 +207,7 @@
   display: block;
 }
 
-.back-to-login{
+.back-to-login {
   text-decoration: none;
   font-size: 18px;
   font-weight: bolder;
@@ -209,9 +238,9 @@
 
 
 .otp-screen-main {
-  background-color: #fff; 
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 50px;
   text-align: center;
   max-width: 400px;
@@ -223,7 +252,8 @@
 .otp-screen-main-heading {
   margin: 20px 0;
 }
-.otp-screen-main-heading>h1{
+
+.otp-screen-main-heading>h1 {
   margin-bottom: 20px;
 }
 
@@ -236,41 +266,41 @@
 
 
 .otp-input input {
-  width: 40px; 
-  height: 40px; 
-  font-size: 24px; 
-  margin: 0 5px; 
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  margin: 0 5px;
   text-align: center;
-  border: 2px solid #ccc; 
+  border: 2px solid #ccc;
   border-radius: 4px;
-  outline: none; 
+  outline: none;
 }
 
 
 .otp-input input:focus {
-  border-color: #007bff; 
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 
-.not-recieved-otp{
+.not-recieved-otp {
   margin-top: 30px;
 }
 
-.not-recieved-otp>span{
+.not-recieved-otp>span {
   margin-right: 10px;
 
 
 }
 
 
-.verify-otp{
+.verify-otp {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.otp-verify-button{
+.otp-verify-button {
   width: 50%;
   border-radius: 5px;
   padding: 15px;
@@ -298,11 +328,13 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0; /* Background color */
+  background-color: #f0f0f0;
+  /* Background color */
 }
 
 .new-password-screen-main {
-  background-color: #fff; /* Content background color */
+  background-color: #fff;
+  /* Content background color */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -319,7 +351,7 @@
 
 .new-password-screen-main-heading p {
   font-size: 14px;
-  color: #777; 
+  color: #777;
   margin-bottom: 18px;
 
 }
@@ -335,7 +367,7 @@
 
 .password-input input:focus {
   outline: none;
-  border-color: #007bff; 
+  border-color: #007bff;
 }
 
 .set-password-button button {
@@ -343,8 +375,8 @@
   width: 50%;
   padding: 12px;
   /* margin-top: 80px; */
-  background-color: #007bff; 
-  color: #fff; 
+  background-color: #007bff;
+  color: #fff;
   border: none;
   border-radius: 4px;
   font-size: 16px;
@@ -353,21 +385,14 @@
 }
 
 .set-password-button button:hover {
-  background-color: #0056b3; /* Hovered button background color */
+  background-color: #0056b3;
 }
 
-.togglePassword{
-  margin: 10px 0 ;
-  background-color:#ccc;
+.togglePassword {
+  margin: 10px 0;
+  background-color: #ccc;
   outline: none;
   border: none;
   padding: 10px;
   border-radius: 5px;
 }
-
-
-
-
-
-
-

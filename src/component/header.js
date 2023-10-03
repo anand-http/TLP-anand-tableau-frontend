@@ -1,22 +1,25 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import userIcon from '../assets/userIcon.png';
 import logo from '../assets/logo-footer.png';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 const Header = ({ setAuthenticated }) => {
+    const { authenticatedState ,setAuthenticatedState } = useAuth();
     const navigate = useNavigate();
 
     const [isLoggedOut, setIsLoggedOut] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    // const [authenticatedState, setAuthenticatedState] = useState(false);
 
 
-    // useEffect(() => {
-    //     // Check if the user is authenticated (you can implement your own logic)
-    //     const isAuthenticated = localStorage.getItem('accessToken') !== null;
-    //     setAuthenticatedState(isAuthenticated);
-    // }, []);
+
+    useEffect(() => {
+        // Check if the user is authenticated (you can implement your own logic)
+        const isAuthenticated = localStorage.getItem('accessToken') !== null;
+
+        setAuthenticatedState(isAuthenticated);
+    }, []);
 
 
     const toggleDropdown = () => {
@@ -30,7 +33,7 @@ const Header = ({ setAuthenticated }) => {
         setIsLoggedOut(true);
         setAuthenticated(false);
         toggleDropdown()
-        // setAuthenticatedState(false);
+        setAuthenticatedState(false);
         navigate('/');
     };
 
@@ -44,7 +47,7 @@ const Header = ({ setAuthenticated }) => {
             </div>
 
 
-        
+            { authenticatedState &&
                 <div className="header-right" >
 
                     <div className="user" onClick={toggleDropdown}>
@@ -61,6 +64,8 @@ const Header = ({ setAuthenticated }) => {
 
                     </div>
                 </div>
+            }
+
 
 
 

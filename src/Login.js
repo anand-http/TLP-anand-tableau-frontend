@@ -3,13 +3,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './login.css';
 import loginImage from './assets/loginImage.png';
-import {NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
 const Login = ({ onAuthentication }) => {
   const [credentials, setCredentials] = useState({
     user: '',
     pwd: '',
   });
+
+  const { setAuthenticatedState } = useAuth();
 
 
   const handleChange = (e) => {
@@ -23,17 +26,21 @@ const Login = ({ onAuthentication }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://15.206.174.83:3500/auth', credentials);
-      // const response = await axios.post('http://localhost:3500/auth', credentials);
+      // const response = await axios.post('http://15.206.174.83:3500/auth', credentials);
+      const response = await axios.post('http://localhost:3400/auth', credentials);
       console.log('Authentication successful', response.data);
 
       localStorage.setItem('accessToken', response.data.accessToken);
       localStorage.setItem('tableauJWT', response.data.tableauJWT);
 
+
       // Call the onAuthentication callback to set authentication status to true
       onAuthentication(true, response.data.accessToken, response.data.tableauJWT);
+      setAuthenticatedState(true);
     } catch (error) {
       console.error('Authentication failed', error);
+      alert("Login failed check the console for detailed error");
+
     }
   };
 
@@ -49,7 +56,7 @@ const Login = ({ onAuthentication }) => {
 
           <form onSubmit={handleSubmit}>
 
-            <div className='user'>
+            <div className='user-input'>
 
               <label htmlFor="user">Employee ID </label>
               <br />

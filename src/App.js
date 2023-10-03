@@ -6,7 +6,6 @@ import Login from './Login';
 import Home from './Home';
 import DashboardThumbnail from './component/dasboardThumbnail';
 import ForgotPassword from './component/forgotPassword';
-import OtpScreen from './component/otpScreen';
 import { AuthProvider } from './AuthContext';
 import NewPassword from './component/NewPassword';
 
@@ -15,7 +14,6 @@ function App() {
   const [accessToken, setAccessToken] = useState("");
   const [tableauJWT, setTableauJWT] = useState("");
 
-  // logout
 
 
 
@@ -51,9 +49,7 @@ function App() {
           <Route path="/" element={authenticated ? <DashboardThumbnail /> : <Login onAuthentication={handleAuthentication} />} />
           <Route path="/home" element={<Home />} />
           <Route path="/forgot-pswd" element={<ForgotPassword />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/otp-screen' element={<OtpScreen />} />
-          <Route path='/new-password' element={<NewPassword />} />
+          <Route path='/reset-password/:employeeId/:token' element={<NewPassword />} />
         </Routes>
       </Router>
     </AuthProvider>

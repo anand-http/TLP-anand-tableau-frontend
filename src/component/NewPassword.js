@@ -1,58 +1,60 @@
 import React, { useState } from 'react';
-import { useAuth } from '../AuthContext';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const NewPasswordScreen = () => {
     const navigate = useNavigate();
 
-    const { email } = useAuth();
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const { employeeId, token } = useParams();
 
-    const handleNewPasswordChange = (e) => {
-        setNewPassword(e.target.value);
-    };
-
-    const handleConfirmPasswordChange = (e) => {
-        setConfirmPassword(e.target.value);
-    };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleSetNewPassword = () => {
-
-        if (newPassword === confirmPassword && newPassword.length >= 6) {
-   
-            alert("Password updated successfully!");
-            navigate('/')
+    const handleSetNewPassword = async () => {
+        if (newPassword === confirmPassword ) {
+            try {
+                const response = await axios.post(`http://localhost:3400/reset-password/${employeeId}/${token}`, {
+                    employeeId,
+                    token,
+                    newPassword
+                });
+    
+                if (response.data.Status === "Success") {
+                    navigate('/');
+                }
+            } catch (error) {
+                console.log(`${error}`);
+            }
         } else {
             alert("Passwords do not match or do not meet the criteria.");
         }
     };
+    
 
     return (
         <div className='new-password-screen-container'>
             <div className="new-password-screen-main">
                 <div className="new-password-screen-main-heading">
                     <h1>New Password</h1>
-                    <p>Set a new password for your account associated with {email}</p>
                 </div>
 
                 <div className="password-input">
                     <input
-                        type={showPassword ? "text" : "password"} // Toggle password visibility
+                        type={showPassword ? "text" : "password"}
                         placeholder="New Password"
                         value={newPassword}
-                        onChange={handleNewPasswordChange}
+                        onChange={(e) => setNewPassword(e.target.value)}
                     />
                     <input
                         type={showPassword ? "text" : "password"}
                         placeholder="Confirm Password"
                         value={confirmPassword}
-                        onChange={handleConfirmPasswordChange}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                     <button className='togglePassword' onClick={togglePasswordVisibility}>
                         {showPassword ? "Hide Password" : "Show Password"}

@@ -1,6 +1,6 @@
 .login-background{
     background-color: #aa66ef;
-    height: 100vh;
+    height: 94vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +33,7 @@
     margin: 20px 0;
 }
 
-.user>input{
+.user-input>input{
 outline: none;
 padding: 12px;
 border-radius: 5px;

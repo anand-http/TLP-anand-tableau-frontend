@@ -4,10 +4,6 @@ import cardData from './data';
 import Sidebar from "./sidebar/Sidebar";
 
 
-
-
-
-
 const DashboardThumbnail = () => {
 
 
