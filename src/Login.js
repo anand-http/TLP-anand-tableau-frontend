@@ -26,8 +26,8 @@ const Login = ({ onAuthentication }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const response = await axios.post('http://15.206.174.83:3500/auth', credentials);
-      const response = await axios.post('http://localhost:3400/auth', credentials);
+      const response = await axios.post('http://15.206.174.83:3500/auth', credentials);
+      // const response = await axios.post('http://localhost:3400/auth', credentials);
       console.log('Authentication successful', response.data);
 
       localStorage.setItem('accessToken', response.data.accessToken);
@@ -89,8 +89,6 @@ const Login = ({ onAuthentication }) => {
             <div className="forgot-password">
               <NavLink className='forgotPswdLink' to='/forgot-pswd'>Forgot Password</NavLink>
             </div>
-
-
 
 
             <div className="login-btn">

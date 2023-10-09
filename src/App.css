@@ -5,6 +5,27 @@
 
 }
 
+/* back-button on home css */
+
+.backButton {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  z-index: 100;
+  width: 10%;
+  height: 10%;
+
+}
+
+.backLink {
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #1f4171;
+  font-weight: bolder;
+}
+
 
 /* card css */
 
